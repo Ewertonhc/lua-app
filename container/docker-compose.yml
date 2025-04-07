@@ -16,15 +16,16 @@ services:
     - SECRET=UxNGNjv5qjbmhpbRjTnVNGknUEzBQnee
     volumes:
     - ./nginx-resolver-local.conf:/usr/local/openresty/nginx/conf/nginx.conf:z
+
   db:
-    image: mysql:8.3
+    image: mysql:8.0  # Versão válida do MySQL
     environment:
     - MYSQL_ROOT_PASSWORD=!Abc123
     - MYSQL_USER=lua
     - MYSQL_PASSWORD=4linux
     - MYSQL_DATABASE=lua
     volumes:
-    - mariadb:/var/lib/mysql
+    - mysql:/var/lib/mysql  # Volume correto para persistência
 
 volumes:
-  mysql: {}
+  mysql: {}  # Definindo o volume 'mysql' corretamente

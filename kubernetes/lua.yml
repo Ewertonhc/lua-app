@@ -21,7 +21,7 @@ spec:
         app: lua
     spec:
       initContainers:
-      - image: hectorvido/lua-app
+      - image: container-app
         name: migration
         envFrom:
         - secretRef:
@@ -31,7 +31,7 @@ spec:
         args:
         - migrate
       containers:
-      - image: hectorvido/lua-app
+      - image: container-app
         name: lua
         envFrom:
         - secretRef:
@@ -64,7 +64,7 @@ metadata:
   namespace: lua
 spec:
   rules:
-  - host: "lua.192-168-99-102.nip.io"
+  - host: "lua.192-168-99-102.nip.io"  # Verifique o acesso ao nip.io ou ajuste para o seu domínio
     http:
       paths:
       - path: /
