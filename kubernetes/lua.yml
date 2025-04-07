@@ -21,7 +21,7 @@ spec:
         app: lua
     spec:
       initContainers:
-      - image: container-app
+      - image: hectorvido/lapis
         name: migration
         envFrom:
         - secretRef:
@@ -31,7 +31,7 @@ spec:
         args:
         - migrate
       containers:
-      - image: container-app
+      - image: hectorvido/lapis
         name: lua
         envFrom:
         - secretRef:
